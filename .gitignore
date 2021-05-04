@@ -8,3 +8,4 @@ build/
 *build/
 build/*
 build
+/catalogo-jsp/nbproject/private/
