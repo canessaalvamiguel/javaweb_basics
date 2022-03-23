@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title><h:outputText value="Ejemplo de Formulario JSF2 Basico" /></title>
+    </h:head>
+    <h:body>
+        <h1>
+            <h:outputText value="Resultado: Formulario JSF2 Basico" />
+        </h1>
+        <p>
+            <h:link outcome="ejemplo" value="volver" id="volver" />
+        </p>
+        <f:facet name="header">
+            <h:outputText value="Ver detalle #{cuenta.nombre}" />: 
+        </f:facet>
+        <h:outputLabel style="font-weight:bold" value="Id" />: 
+        <h:outputText value="#{cuenta.id}" />
+        <br />
+        <h:outputLabel style="font-weight:bold" value="Nombre" />: 
+        <h:outputText value="#{cuenta.nombre}" />
+        <br />
+        <h:outputLabel style="font-weight:bold" value="Email" />: 
+        <h:outputText value="#{cuenta.email}" />
+        <br />
+        <h:outputLabel style="font-weight:bold" value="Saldo" />: 
+        <h:outputText value="#{cuenta.saldo}" />
+        <br />
+        <h:outputLabel style="font-weight:bold" value="Nivel Endeudamiento" />: 
+        <h:outputText value="#{cuenta.nivelEndeudamiento}" />
+        <br />
+        <h:outputLabel style="font-weight:bold" value="Fecha Renovación" />: 
+        <h:outputText value="#{cuenta.fechaRenovacion}" />
+        <br />
+    </h:body>
+</html>

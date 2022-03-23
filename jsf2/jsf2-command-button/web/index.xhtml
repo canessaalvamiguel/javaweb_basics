@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>Ejemplo de Ejecutar una acción mediante un command Button</h1>
+        <h:form id="ejemploCommandButtonForm">
+
+            <h:commandButton value="Clic!"
+                             action="#{ejemploCommandButton.ejecutar()}" />
+
+        </h:form>
+        <h:dataTable id="nombreUsuarios"
+                     value="#{ejemploCommandButton.usuarios}" var="nombre"
+                     rendered="#{not empty ejemploCommandButton.usuarios}">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Nombres" />
+                </f:facet>
+                <h:outputText value="#{nombre}" />
+            </h:column>
+
+        </h:dataTable>
+
+    </h:body>
+</html>

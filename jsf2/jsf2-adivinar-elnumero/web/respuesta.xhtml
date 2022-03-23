@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Ejemplo JSF2  Adivinar el Numero</title>
+        <meta charset="utf-8" />
+    </h:head>
+    <h:body>
+        <h1>Ejemplo JSF2  Adivinar el Numero</h1>
+        <h:form>
+            <h:graphicImage value="#{resource['img:wave.med.gif']}" />
+            <h2>
+                <h:outputText id="result" value="#{adivinarNumeroBean.respuesta}" />
+            </h2>
+            <h:commandButton id="volver" value="Volver" action="ejemplo" />
+        </h:form>
+    </h:body>
+</html>

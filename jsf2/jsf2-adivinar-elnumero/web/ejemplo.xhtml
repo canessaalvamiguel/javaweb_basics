@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Ejemplo JSF2  Adivinar el Numero</title>
+        <meta charset="utf-8" />
+    </h:head>
+    <h:body>
+        <h1>Ejemplo JSF2  Adivinar el Numero</h1>
+
+        <h:form>
+
+            <h:graphicImage value="#{resource['img:wave.med.gif']}" />
+            <p>
+                Hola, Mi nombre es Duke. Estoy pensando en un número entre <b>
+                    #{adivinarNumeroBean.numeroMinimo} (Inclusive) y
+                    #{adivinarNumeroBean.numeroMaximo}. </b> ¿Puedes adivinarlo?
+            </p>
+            <h:inputText id="numeroUsuario"
+                         value="#{adivinarNumeroBean.numeroUsuario}">
+                <f:validateLongRange minimum="#{adivinarNumeroBean.numeroMinimo}"
+                                     maximum="#{adivinarNumeroBean.numeroMaximo}" />
+            </h:inputText>
+
+            <h:commandButton id="submit" value="Enviar número" action="respuesta" />
+            <br />
+            <h:message showSummary="true" showDetail="false"
+                       style="color: red;
+                       font-family: 'New Century Schoolbook', serif;
+                       font-style: oblique;
+                       text-decoration: overline"
+                       id="errors1" for="numeroUsuario" />
+
+        </h:form>
+    </h:body>
+</html>
+

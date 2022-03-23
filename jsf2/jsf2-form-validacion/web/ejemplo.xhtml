@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title><h:outputText value="Ejemplo de Formulario JSF2 Basico" /></title>
+    </h:head>
+    <h:body>
+        <h1>
+            <h:outputText value="Ejemplo de Formulario JSF2 Basico" />
+        </h1>
+
+        <h:form id="cuenta">
+
+            <fieldset>
+                <legend>Cuenta</legend>
+                <h:panelGrid columns="3">
+
+                    <h:outputLabel id="nombreLabel" style="font-weight:bold;"
+                                   value="Nombre:" for="nombre" />
+                    <h:inputText id="nombre" value="#{cuenta.nombre}"></h:inputText>
+                    <h:message for="nombre" style="color:red"/>
+
+                    <h:outputLabel id="emailLabel" style="font-weight:bold;"
+                                   value="Email:" for="email" />
+                    <h:inputText id="email" value="#{cuenta.email}"></h:inputText>
+                    <h:message for="email" style="color:red"/>
+
+                    <h:outputLabel id="saldoLabel" style="font-weight:bold;"
+                                   value="Saldo:" for="saldo" />
+                    <h:inputText id="saldo" value="#{cuenta.saldo}"></h:inputText>
+                    <h:message for="saldo" style="color:red"/>
+
+                    <h:outputLabel id="nivelEndeudamientoLabel"
+                                   style="font-weight:bold;" value="Nivel Endeudamiento:"
+                                   for="nivelEndeudamiento" />
+                    <h:inputText id="nivelEndeudamiento"
+                                 value="#{cuenta.nivelEndeudamiento}">
+                    </h:inputText>
+                    <h:message for="nivelEndeudamiento" style="color:red"/>
+
+                    <h:outputLabel id="fechaRenovacionLabel" style="font-weight:bold;"
+                                   value="Fecha Renovación:" for="fechaRenovacion" />
+
+                    <h:inputText id="fechaRenovacion" value="#{cuenta.fechaRenovacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy hh:mm a" />
+                    </h:inputText>
+
+                    <h:message for="fechaRenovacion" style="color:red"/>
+
+                </h:panelGrid>
+            </fieldset>
+
+            <div class="actionButtons">
+                <h:commandButton id="crear" value="Crear Cuenta!"
+                                 action="#{ejemploForm.crearCuenta}" />
+            </div>
+        </h:form>
+        <div style="clear: both">
+            <span class="required">*</span>campos requeridos
+        </div>
+    </h:body>
+</html>
