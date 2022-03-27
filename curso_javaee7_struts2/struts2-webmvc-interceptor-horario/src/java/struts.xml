@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+    <package name="controllers" namespace="/" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="horarioAccesoClienteInterceptor" class="com.formacionbdi.struts2.interceptor.controllers.HorarioAccesoClienteInterceptor"/>
+        </interceptors>
+
+        <action name="horarioCerrado">
+            <result>/views/cerrado.jsp</result>
+        </action>
+
+        <action name="horarioAbierto" class="com.formacionbdi.struts2.interceptor.controllers.AtencionClienteController">
+            <interceptor-ref name="horarioAccesoClienteInterceptor"/>
+            <result>/views/abierto.jsp</result>
+            <result name="cerrado" type="redirect">horarioCerrado?apertura=${horaApertura}&amp;cierre=${horaCierre}</result>
+        </action>
+        <!-- Add actions here -->
+    </package>
+</struts>
