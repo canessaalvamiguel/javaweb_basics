@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+               
+    <bean id="producto" class="com.formacionbdi.spring.di.inyeccionsimpleatributos.entity.Producto">
+        <property name="nombre" value="Cámara Reflex T5 + Lente 18-55 + 75-300 Canon" />
+        <property name="sku" value="3871475" />
+        <property name="precio" value="150000" />
+        <property name="cantidad" value="35" />
+
+        <property name="categoria" ref="direccion" />
+    </bean>
+
+    <bean id="direccion" class="com.formacionbdi.spring.di.inyeccionsimpleatributos.entity.Categoria">
+        <property name="nombre" value="Tecnología" />
+    </bean>
+
+</beans>

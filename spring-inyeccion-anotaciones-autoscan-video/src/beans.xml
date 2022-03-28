@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd">
+          
+    <!-- habilitamos el uso de anotaciones -->
+    <context:component-scan base-package="com.formacionbdi.spring.di.inyeccionsimpleatributos"/>
+        
+    <bean id="categoria" class="com.formacionbdi.spring.di.inyeccionsimpleatributos.entity.Categoria">
+        <constructor-arg value="Tecnología" />
+    </bean>
+    <bean id="categoria2" class="com.formacionbdi.spring.di.inyeccionsimpleatributos.entity.Categoria">
+        <constructor-arg name="nombre" value="Deporte" />
+    </bean>
+    <bean id="categoria3" class="com.formacionbdi.spring.di.inyeccionsimpleatributos.entity.Categoria">
+        <property name="nombre" value="Muebles" />
+    </bean>
+    <bean id="categoria4" class="com.formacionbdi.spring.di.inyeccionsimpleatributos.entity.Categoria">
+        <property name="nombre" value="Libros" />
+    </bean>
+</beans>
