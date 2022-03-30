@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Ejemplo EJB3 JSF2 JPA2 usando Patron DAO</title>
+        <meta charset="UTF-8" />
+    </h:head>
+    <h:body>
+        <h1>Ejemplo EJB3 JSF2 JPA2 usando Patron DAO (Data Access Object)</h1>
+        <h3>Listado de Productos</h3>
+
+        <h:outputText value="No existen productos en la base de datos"
+                      rendered="#{empty productos}" />
+        <h:dataTable id="productoList" var="_producto"
+                     value="#{productos}" rendered="#{not empty productos}"
+                     cellspacing="0" cellpadding="0" border="0" styleClass="grid"
+                     headerClass="rowHead" footerClass="rowFoot"
+                     rowClasses="rowOdd,rowEven">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                    #{_producto.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                    #{_producto.nombre}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Precio</f:facet>
+                <h:outputText value="#{_producto.precio}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Cantidad</f:facet>
+                <h:outputText value="#{_producto.cantidad}" />
+            </h:column>
+        </h:dataTable>
+    </h:body>
+</html>
+

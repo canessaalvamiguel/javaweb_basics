@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Ejemplo EJB3 JSF2 JPA2 usando Patron DAO</title>
+        <meta charset="UTF-8" />
+    </h:head>
+    <h:body>
+        <h1>Ejemplo EJB3 JSF2 JPA2 usando Patron DAO (Data Access Object)</h1>
+        <h3>Listado de Productos</h3>
+
+        <p>
+            <h:link outcome="crearForm" value="nuevo producto (+)" id="crearForm" />
+        </p>
+        
+        <h:outputText value="No existen productos en la base de datos"
+                      rendered="#{empty productos}" />
+        <h:form id="productoListForm">
+            <h:dataTable id="productoList" var="_producto"
+                         value="#{productos}" rendered="#{not empty productos}"
+                         cellspacing="0" cellpadding="0" border="0" styleClass="grid"
+                         headerClass="rowHead" footerClass="rowFoot"
+                         rowClasses="rowOdd,rowEven">
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                        #{_producto.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nombre</f:facet>
+                        #{_producto.nombre}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Precio</f:facet>
+                    <h:outputText value="#{_producto.precio}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Cantidad</f:facet>
+                    <h:outputText value="#{_producto.cantidad}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="editar" />
+                    </f:facet>
+                    <h:link outcome="crearForm" value="editar" id="crearForm">
+                        <f:param name="producto_id" value="#{_producto.id}" />
+                    </h:link>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="eliminar" />
+                    </f:facet>
+                    <h:commandLink action="#{catalogo.eliminar(_producto)}"
+                                   onclick="return confirm('¿seguro que desea eliminar?');"
+                                   value="eliminar" id="productosEliminar">
+                        <f:param name="producto_id" value="#{_producto.id}" />
+                    </h:commandLink>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet-mapping>
+        <servlet-name>EliminarController</servlet-name>
+        <url-pattern>/eliminar.do</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <servlet>
+        <description/>
+        <display-name>ListadoController</display-name>
+        <servlet-name>ListadoController</servlet-name>
+        <servlet-class>controllers.ListadoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarController</servlet-name>
+        <servlet-class>controllers.EliminarController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListadoController</servlet-name>
+        <url-pattern>/listado.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description/>
+        <display-name>DetalleController</display-name>
+        <servlet-name>DetalleController</servlet-name>
+        <servlet-class>controllers.DetalleController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DetalleController</servlet-name>
+        <url-pattern>/detalle.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description/>
+        <display-name>ProductoForm</display-name>
+        <servlet-name>ProductoForm</servlet-name>
+        <servlet-class>controllers.FormController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductoForm</servlet-name>
+        <url-pattern>/form.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description/>
+        <display-name>ProductoGuardar</display-name>
+        <servlet-name>ProductoGuardar</servlet-name>
+        <servlet-class>controllers.GuardarController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductoGuardar</servlet-name>
+        <url-pattern>/guardar.do</url-pattern>
+    </servlet-mapping>
+
+</web-app>

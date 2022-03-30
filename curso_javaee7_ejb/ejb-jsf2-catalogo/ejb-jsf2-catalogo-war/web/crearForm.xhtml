@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Ejemplo EJB3 JSF2 JPA2 usando Patron DAO </title>
+        <meta charset="UTF-8" />
+    </h:head>
+    <h:body>
+        <p>
+            <h:link outcome="index" value="volver" id="volver" />
+        </p>
+        <h1>
+            <h:outputText value="#{producto.id>0?'Editar':'Crear'} Producto" />
+        </h1>
+        <h:form id="productoForm">
+            <h:inputHidden id="id" value="#{producto.id}" />
+
+            <fieldset>
+                <legend><h:outputText value="#{producto.id>0?'Editar':'Crear'} Producto" /></legend>
+                <h:panelGrid columns="3">
+                    <h:outputLabel id="descripcionLabel" style="font-weight:bold;"
+                                   value="Nombre" for="nombre" />
+                    <h:inputText id="nombre" value="#{producto.nombre}"/>
+                    <h:message for="nombre" style="color:red" />
+
+                    <h:outputLabel id="precioLabel" style="font-weight:bold;"
+                                   value="Precio:" for="precio" />
+                    <h:inputText id="precio" value="#{producto.precio}"/>
+                    <h:message for="precio" style="color:red" />
+
+                    <h:outputLabel id="cantidadLabel" style="font-weight:bold;"
+                                   value="Cantidad:" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{producto.cantidad}" />
+                    <h:message for="cantidad" style="color:red" />
+
+                </h:panelGrid>
+            </fieldset>
+
+            <div class="actionButtons">
+                <h:commandButton id="crear" value="#{producto.id>0?'Editar':'Crear'} Producto"
+                                 action="#{catalogo.guardar}" />
+            </div>
+        </h:form>
+    </h:body>
+</html>
